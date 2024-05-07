@@ -4,6 +4,11 @@
 #include <iostream>
 #include <string>
 
+void clearScreen() {
+  // ANSI escape code to clear screen
+  std::cout << "\033[2J\033[1;1H";
+}
+
 int main() {
   int characterChoice;
   mainCharacter maincharacter;
@@ -30,6 +35,7 @@ int main() {
 
   std::cout << "Welcome " << characterName << std::endl;
 
+  clearScreen();
   std::cout << "\nYou wake up alone you look around you and you see nothing "
                "but woods you start to look around"
             << " but you see no one. \nYou are Alone\nYou decide to walk "
@@ -41,12 +47,15 @@ int main() {
 
   switch (characterChoice) {
   case 1:
+    clearScreen();
     std::cout << "You try and attack but die bravely" << std::endl;
     break;
   case 2:
+    clearScreen();
     std::cout << "You escape" << std::endl;
     break;
   default:
+    clearScreen();
     std::cout << "Pick again" << std::endl;
   }
   return 0;
