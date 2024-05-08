@@ -1,10 +1,11 @@
 #ifndef MAIN_CHARACTER_H
 #define MAIN_CHARACTER_H
+#include "hit_point_types.h"
 #include <iostream>
 
 class mainCharacter {
 private:
-  int health;
+  hp health;
   int attackPower;
 
 public:
@@ -15,7 +16,7 @@ public:
   void runAway();
   int getHealth() const;
   int getAttackPower() const;
-  void setHealth(int newHealth);
+  void setHealth(hp newHealth);
   void setAttackPower(int newAttackPower);
 };
 
@@ -38,7 +39,13 @@ void mainCharacter::runAway() { std::cout << "You ran away" << std::endl; }
 int mainCharacter::getHealth() const { return health; }
 int mainCharacter::getAttackPower() const { return attackPower; }
 
-void mainCharacter::setHealth(int newHealth) { health = newHealth; }
+void mainCharacter::setHealth(hp newHealth) {
+  if (newHealth < 1) {
+    newHealth = 0;
+  } else {
+    health = newHealth;
+  }
+}
 
 void mainCharacter::setAttackPower(int newAttackPower) {
   attackPower = newAttackPower;
