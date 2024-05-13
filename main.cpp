@@ -14,7 +14,7 @@ int main() {
   std::string characterName;
   int mill = 30;
 
-  std::cout << "\nWelcome to text game select your character" << std::endl;
+  std::cout << "Welcome to text game select your character" << std::endl;
   std::cout << "1. Brutus\n2.Jenn" << std::endl;
   std::cin >> characterChoice;
 
@@ -46,6 +46,7 @@ int main() {
 
   printWithDelay(introText, 30);
 
+  std::cout << std::endl;
   std::cout << "\nWhat do you do?\n1.Attack\n2.Run away" << std::endl;
   std::cin >> characterChoice;
 
@@ -58,16 +59,17 @@ int main() {
   case 2:
     clearScreen();
     std::cout << "You escape" << std::endl;
+    std::this_thread::sleep_for((std::chrono::milliseconds(1000)));
     break;
   default:
     clearScreen();
     std::cout << "Pick again" << std::endl;
   }
-
+  std::this_thread::sleep_for((std::chrono::milliseconds(2)));
   clearScreen();
 
-  std::string place = "\nYou manage to escape and as you wonder you see a "
-                      "town in the distance"
+  std::string place = "You manage to escape and as you wonder you see a "
+                      "\ntown in the distance"
                       "\nwhat do you do?"
                       "\n1.Enter the town\n2.Continue Wondering the Forest";
   printWithDelay(place, mill);
